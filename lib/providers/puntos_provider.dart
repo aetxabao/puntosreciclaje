@@ -17,6 +17,7 @@ class PuntosProvider {
 
   List<String> listaMancomunidades = [];
   List<String> listaLocalidadesMancomunidad = [];
+  List<String> listaTiposLocalidad = [];
 
   Future<List<PuntoReciclaje>> cargarPuntos() async {
     final data =
@@ -54,6 +55,20 @@ class PuntosProvider {
       }
     });
     return listaLocalidadesMancomunidad;
+  }
+
+  Future<List<String>> cargarTipos(String localidad) async {
+    if (listaPuntos.length == 0) {
+      await cargarPuntos();
+    }
+    listaTiposLocalidad = [];
+    listaPuntos.forEach((pr) {
+      if ((pr.localidad == localidad) &&
+          (listaTiposLocalidad.indexOf(pr.tipoEquipamiento) < 0)) {
+        listaTiposLocalidad.add(pr.tipoEquipamiento);
+      }
+    });
+    return listaTiposLocalidad;
   }
 }
 
