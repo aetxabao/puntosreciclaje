@@ -3,8 +3,8 @@ import 'package:puntosreciclaje/screens/lista_localidades_screen.dart';
 import 'package:puntosreciclaje/screens/lista_mancomunidades_screen.dart';
 import 'package:puntosreciclaje/screens/lista_puntos_screen.dart';
 import 'package:puntosreciclaje/screens/lista_tipos_screen.dart';
-import 'package:puntosreciclaje/screens/listpuntos_screen.dart';
-import 'package:puntosreciclaje/screens/listview_screen.dart';
+// import 'package:puntosreciclaje/screens/listpuntos_screen.dart';
+// import 'package:puntosreciclaje/screens/listview_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,9 +13,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home:
-          ListaPuntosScreen(), //ListaTiposScreen(), //ListaLocalidadesScreen(),
-      //ListaMancomunidadesScreen(), //ListPuntosScreen(), //ListViewScreen(),
+      initialRoute: 'mancomunidades',
+      routes: <String, WidgetBuilder>{
+        'mancomunidades': (context) => ListaMancomunidadesScreen(),
+        'localidades': (context) => ListaLocalidadesScreen(),
+        'tipos': (context) => ListaTiposScreen(),
+        'puntos': (context) => ListaPuntosScreen(),
+      },
+      // home:
+      //     ListaPuntosScreen(), //ListaTiposScreen(), //ListaLocalidadesScreen(),
+      // //ListaMancomunidadesScreen(), //ListPuntosScreen(), //ListViewScreen(),
     );
   }
 }
