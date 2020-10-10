@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:puntosreciclaje/models/puntoreciclaje_model.dart';
 import 'package:puntosreciclaje/providers/puntos_provider.dart';
 import 'package:puntosreciclaje/screens/lista_tipos_screen.dart';
 
 class ListaPuntosScreen extends StatelessWidget {
   Map<String, Object> args = new Map<String, Object>();
+  final box = GetStorage();
+
   @override
   Widget build(BuildContext context) {
-    args = Get.arguments;
+    args = Get.arguments ?? new Map<String, Object>();
     return Scaffold(
       appBar: AppBar(
         title: Text("Puntos de Reciclaje"),
@@ -26,8 +29,9 @@ class ListaPuntosScreen extends StatelessWidget {
 
   Widget _lista() {
     return FutureBuilder(
-      future:
-          puntosProvider.cargarPuntosFiltrados(args['localidad'], args['tipo']),
+      future: puntosProvider.cargarPuntosFiltrados(
+          box.read('localidad') ?? args['localidad'],
+          box.read('tipo') ?? args['tipo']),
       initialData: [],
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:puntosreciclaje/providers/puntos_provider.dart';
 import 'package:puntosreciclaje/screens/lista_localidades_screen.dart';
 import 'package:puntosreciclaje/screens/lista_puntos_screen.dart';
 
 class ListaTiposScreen extends StatelessWidget {
   Map<String, Object> args = new Map<String, Object>();
+  final box = GetStorage();
+
   @override
   Widget build(BuildContext context) {
-    args = Get.arguments;
+    box.write('tipo', null);
+    args = Get.arguments ?? new Map<String, Object>();
     return Scaffold(
       appBar: AppBar(
         title: Text("Tipos"),
@@ -26,7 +30,8 @@ class ListaTiposScreen extends StatelessWidget {
 
   Widget _lista() {
     return FutureBuilder(
-      future: puntosProvider.cargarTipos(args['localidad']),
+      future: puntosProvider
+          .cargarTipos(box.read('localidad') ?? args['localidad']),
       initialData: [],
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
@@ -47,6 +52,7 @@ class ListaTiposScreen extends StatelessWidget {
         title: Text(element),
         trailing: Icon(Icons.keyboard_arrow_right),
         onTap: () {
+          box.write('tipo', element);
           args['tipo'] = element;
           //Navigator.pushNamed(context, 'tipos', arguments: args);
           Get.offAll(ListaPuntosScreen(), arguments: args);
