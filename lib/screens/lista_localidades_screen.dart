@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:puntosreciclaje/providers/puntos_provider.dart';
+import 'package:puntosreciclaje/screens/lista_mancomunidades_screen.dart';
+import 'package:puntosreciclaje/screens/lista_tipos_screen.dart';
 
 class ListaLocalidadesScreen extends StatelessWidget {
   Map<String, Object> args = new Map<String, Object>();
 
   @override
   Widget build(BuildContext context) {
-    args = ModalRoute.of(context).settings.arguments;
+    //args = ModalRoute.of(context).settings.arguments;
+    args = Get.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text("Localidades"),
@@ -14,7 +18,8 @@ class ListaLocalidadesScreen extends StatelessWidget {
       body: _lista(context),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pop(context);
+          //Navigator.pop(context);
+          Get.offAll(ListaMancomunidadesScreen(), arguments: args);
         },
         child: Icon(Icons.arrow_back),
       ),
@@ -45,7 +50,8 @@ class ListaLocalidadesScreen extends StatelessWidget {
         trailing: Icon(Icons.keyboard_arrow_right),
         onTap: () {
           args['localidad'] = element;
-          Navigator.pushNamed(context, 'tipos', arguments: args);
+          //Navigator.pushNamed(context, 'tipos', arguments: args);
+          Get.offAll(ListaTiposScreen(), arguments: args);
         },
       );
       lst.add(w);

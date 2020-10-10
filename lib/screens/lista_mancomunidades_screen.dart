@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:puntosreciclaje/providers/puntos_provider.dart';
+import 'package:puntosreciclaje/screens/lista_localidades_screen.dart';
 
 class ListaMancomunidadesScreen extends StatelessWidget {
   Map<String, Object> args = new Map<String, Object>();
@@ -38,7 +40,8 @@ class ListaMancomunidadesScreen extends StatelessWidget {
         trailing: Icon(Icons.keyboard_arrow_right),
         onTap: () {
           args['mancomunidad'] = element;
-          Navigator.pushNamed(context, 'localidades', arguments: args);
+          // Navigator.pushNamed(context, 'localidades', arguments: args);
+          Get.offAll(ListaLocalidadesScreen(), arguments: args);
         },
       );
       lst.add(w);
