@@ -15,6 +15,8 @@ class PuntosProvider {
 
   List<PuntoReciclaje> listaPuntos = [];
 
+  List<String> listaMancomunidades = [];
+
   Future<List<PuntoReciclaje>> cargarPuntos() async {
     final data =
         await rootBundle.loadString('assets/data/ReciclajesGlobal.json');
@@ -24,6 +26,19 @@ class PuntosProvider {
     Puntos puntos = Puntos.fromJsonList(openDataRow);
     listaPuntos = puntos.lista;
     return listaPuntos;
+  }
+
+  Future<List<String>> cargarMancomunidades() async {
+    if (listaPuntos.length == 0) {
+      await cargarPuntos();
+    }
+    listaMancomunidades = [];
+    listaPuntos.forEach((pr) {
+      if (listaMancomunidades.indexOf(pr.mancomunidad) < 0) {
+        listaMancomunidades.add(pr.mancomunidad);
+      }
+    });
+    return listaMancomunidades;
   }
 }
 

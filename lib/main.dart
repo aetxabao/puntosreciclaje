@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:puntosreciclaje/screens/lista_mancomunidades_screen.dart';
 import 'package:puntosreciclaje/screens/listpuntos_screen.dart';
 import 'package:puntosreciclaje/screens/listview_screen.dart';
 
@@ -9,7 +10,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: ListPuntosScreen(), //ListViewScreen(),
+      home:
+          ListaMancomunidadesScreen(), //ListPuntosScreen(), //ListViewScreen(),
     );
   }
 }
