@@ -5,6 +5,7 @@ import 'package:latlong/latlong.dart';
 import 'package:puntosreciclaje/models/puntoreciclaje_model.dart';
 import 'package:puntosreciclaje/screens/lista_puntos_screen.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:puntosreciclaje/widgets/menu_widget.dart';
 
 class MapaPuntosScreen extends StatefulWidget {
   @override
@@ -37,6 +38,7 @@ class _MapaPuntosScreenState extends State<MapaPuntosScreen> {
               }),
         ],
       ),
+      drawer: MenuWidget(),
       body: _flutterMap(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.arrow_back),
