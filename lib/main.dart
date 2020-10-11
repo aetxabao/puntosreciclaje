@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
     String localidad = box.read('localidad');
     String tipo = box.read('tipo');
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       // Before: MaterialApp(
       title: 'Material App',
       // home: MapaPuntosScreen(),
