@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:puntosreciclaje/providers/puntos_provider.dart';
 import 'package:puntosreciclaje/screens/lista_localidades_screen.dart';
+import 'package:puntosreciclaje/widgets/menu_widget.dart';
 
 class ListaMancomunidadesScreen extends StatelessWidget {
   Map<String, Object> args = new Map<String, Object>();
@@ -17,6 +18,7 @@ class ListaMancomunidadesScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Mancomunidades"),
       ),
+      drawer: MenuWidget(),
       body: _lista(context),
     );
   }

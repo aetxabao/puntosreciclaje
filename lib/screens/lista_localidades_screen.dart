@@ -4,6 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:puntosreciclaje/providers/puntos_provider.dart';
 import 'package:puntosreciclaje/screens/lista_mancomunidades_screen.dart';
 import 'package:puntosreciclaje/screens/lista_tipos_screen.dart';
+import 'package:puntosreciclaje/widgets/menu_widget.dart';
 
 class ListaLocalidadesScreen extends StatelessWidget {
   Map<String, Object> args = new Map<String, Object>();
@@ -19,6 +20,7 @@ class ListaLocalidadesScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Localidades"),
       ),
+      drawer: MenuWidget(),
       body: _lista(context),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
