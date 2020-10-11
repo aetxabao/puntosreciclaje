@@ -5,6 +5,7 @@ import 'package:puntosreciclaje/screens/lista_localidades_screen.dart';
 import 'package:puntosreciclaje/screens/lista_mancomunidades_screen.dart';
 import 'package:puntosreciclaje/screens/lista_puntos_screen.dart';
 import 'package:puntosreciclaje/screens/lista_tipos_screen.dart';
+import 'package:puntosreciclaje/screens/mapa_puntos_screen.dart';
 // import 'package:puntosreciclaje/screens/lista_localidades_screen.dart';
 // import 'package:puntosreciclaje/screens/lista_puntos_screen.dart';
 // import 'package:puntosreciclaje/screens/lista_tipos_screen.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       // Before: MaterialApp(
       title: 'Material App',
+      // home: MapaPuntosScreen(),
       home: (tipo != null)
           ? ListaPuntosScreen()
           : (localidad != null)

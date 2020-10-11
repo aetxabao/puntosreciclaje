@@ -4,6 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:puntosreciclaje/models/puntoreciclaje_model.dart';
 import 'package:puntosreciclaje/providers/puntos_provider.dart';
 import 'package:puntosreciclaje/screens/lista_tipos_screen.dart';
+import 'package:puntosreciclaje/screens/mapa_puntos_screen.dart';
 import 'package:puntosreciclaje/widgets/menu_widget.dart';
 
 class ListaPuntosScreen extends StatelessWidget {
@@ -57,7 +58,7 @@ class ListaPuntosScreen extends StatelessWidget {
         onTap: () {
           // args['id'] = pr.idEquipamiento;
           // //Navigator.pushNamed(context, 'tipos', arguments: args);
-          // Get.offAll(MapaPuntosScreen(), arguments: args);
+          Get.offAll(MapaPuntosScreen(), arguments: pr);
         },
       );
       lst.add(w);
